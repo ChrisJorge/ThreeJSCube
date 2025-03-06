@@ -68,7 +68,6 @@ const controls = new OrbitControls(camera, canvas)
 
 controls.enableDamping = true
 
-console.log(window.innerWidth, window.innerHeight)
 renderer.setSize(window.innerWidth, window.innerHeight)
 const maxPixelRatio = Math.min(window.devicePixelRatio, 2)
 renderer.setPixelRatio(maxPixelRatio)

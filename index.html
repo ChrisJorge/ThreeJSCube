@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./src/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="optionsContainer">
+      <div class="colorContainer">
+        <label class="label">Color</label>
+        <input type="color" class="colorInput" value="#787FE8">
+        <br/>
+        <label for="rotate" class="label">Rotate</label>
+        <input type="radio" id="x" name="rotate" class="rotateRadio" value="x">
+        <label for="x">X</label>
+        <input type="radio" id="y" name="rotate" class="rotateRadio" value="y">
+        <label for="y">Y</label>
+        <input type="radio" id="z" name="rotate" class="rotateRadio" value="z">
+        <label for="z">Z</label>
+        <input type="radio" id="none" name="rotate" class="rotateRadio" value="none" checked = 'true'>
+        <label for="none">None</label>
+        <br/>
+        <div class="modifySizeContainer">
+          <label class="label">X-Scale</label>
+          <input type="range" class="xSizeInputSlider inputSlider" name="xSize" min="0.0" max="10" value="1.0" step="0.1">
+          <input type="text" class="xSizeInputText inputText" value="1.0">
+        </div>
+        <div class="modifySizeContainer">
+          <label class="label">Y-Scale</label>
+          <input type="range" class="ySizeInputSlider inputSlider" name="ySize" min="0.0" max="10" value="1.0" step="0.1">
+          <input type="text" class="ySizeInputText inputText" value="1.0">
+        </div>
+        <div class="modifySizeContainer">
+          <label class="label">Z-Scale</label>
+          <input type="range" class="zSizeInputSlider inputSlider" name="zSize" min="0.0" max="10" value="1.0" step="0.1">
+          <input type="text" class="zSizeInputText inputText" value="1.0">
+        </div>
+      </div>
+    </div>
+    <canvas class="threeJS"></canvas>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

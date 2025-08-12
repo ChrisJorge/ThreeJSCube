@@ -13,17 +13,50 @@ let cubeMesh = new Three.Mesh(cubeGeometry, cubeMaterial);
 scene.add(cubeMesh);
 
 let parameters = {
- cubeColor: cubeColor.getHex()
+ cubeColor: cubeColor.getHex(),
 }
-gui.add(cubeMesh.rotation, 'x', 0, 5).name('Rotate X Axis');
-gui.add(cubeMesh.rotation, 'y', 0, 5).name('Rotate Y Axis');
-gui.add(cubeMesh.rotation, 'z', 0, 5).name('Rotate Z Axis');
-gui.add(cubeMesh.scale, 'x', 0, 2).name('Scale X Axis');
-gui.add(cubeMesh.scale, 'y', 0, 2).name('Scale Y Axis');
-gui.add(cubeMesh.scale, 'z', 0, 2).name('Scale Z Axis');
+
+let rotationParameters = {
+ x: false,
+ y: false,
+ z: false
+}
+let rotationAxis = 'None';
+
+let cubeRotation = gui.addFolder("Cube Rotation");
+cubeRotation.add(cubeMesh.rotation, 'x', 0, 5).name('Rotate X Axis');
+cubeRotation.add(cubeMesh.rotation, 'y', 0, 5).name('Rotate Y Axis');
+cubeRotation.add(cubeMesh.rotation, 'z', 0, 5).name('Rotate Z Axis');
+
+let cubeScale = gui.addFolder("Cube Scale");
+cubeScale.add(cubeMesh.scale, 'x', 0, 2).name('Scale X Axis');
+cubeScale.add(cubeMesh.scale, 'y', 0, 2).name('Scale Y Axis');
+cubeScale.add(cubeMesh.scale, 'z', 0, 2).name('Scale Z Axis');
+
 gui.addColor(parameters, 'cubeColor').onChange((value) => {
   cubeMesh.material.color.set(value);
 })
+
+let autoRotation = gui.addFolder("Auto Rotation");
+autoRotation.add(rotationParameters, 'x').name("X").listen().onChange(()=> {setChecked('x')});
+autoRotation.add(rotationParameters, 'y').name("Y").listen().onChange(()=> {setChecked('y')});
+autoRotation.add(rotationParameters, 'z').name("Z").listen().onChange(()=> {setChecked('z')});
+
+const setChecked = (checkedAxis) => {
+  if(checkedAxis == rotationAxis)
+  {
+    rotationParameters[checkedAxis] = false;
+    rotationAxis = 'None';
+  }
+  else{
+    for(let key in rotationParameters)
+      {
+        rotationParameters[key] = false;
+      }
+    rotationParameters[checkedAxis] = true;
+    rotationAxis = checkedAxis;
+  }
+}
 
 const camera = new Three.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 30);
 
@@ -43,7 +76,6 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 const maxPixelRatio = Math.min(window.devicePixelRatio, 2);
 renderer.setPixelRatio(maxPixelRatio);
 
-let rotationAxis = 'None'
 window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight; // Gets the aspect ratio of the application
   camera.updateProjectionMatrix(); // Update the projection to maintain the aspect ratio 
@@ -59,21 +91,20 @@ window.addEventListener('orientationchange', () => {
 const renderLoop = () => {
   switch(rotationAxis){
     case 'x':
-      cubeXRotation += 0.007
-      cubeMesh.rotation.x = cubeXRotation
+      cubeMesh.rotation.x += 0.015;
       break;
     case 'y':
-      cubeYRotation += 0.007
-      cubeMesh.rotation.y = cubeYRotation
+      cubeMesh.rotation.y += 0.015;
       break;
     case 'z':
-      cubeZRotation += 0.007
-      cubeMesh.rotation.z = cubeZRotation
+      cubeMesh.rotation.z += 0.015;
+      break;
+    default:
       break; 
   }
-  controls.update()
-  renderer.render(scene, camera)
-  window.requestAnimationFrame(renderLoop)
+  controls.update();
+  renderer.render(scene, camera);
+  window.requestAnimationFrame(renderLoop);
 }
 
-renderLoop()
+renderLoop();

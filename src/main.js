@@ -48,7 +48,12 @@ window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight; // Gets the aspect ratio of the application
   camera.updateProjectionMatrix(); // Update the projection to maintain the aspect ratio 
   renderer.setSize(window.innerWidth, window.innerHeight); // Set the size of the window being rendered
-  renderer.setPixelRatio(window.devicePixelRatio);
+})
+
+window.addEventListener('orientationchange', () => {
+  camera.aspect = window.innerWidth / window.innerHeight; // Gets the aspect ratio of the application
+  camera.updateProjectionMatrix(); // Update the projection to maintain the aspect ratio 
+  renderer.setSize(window.innerWidth, window.innerHeight); // Set the size of the window being rendered
 })
 
 const renderLoop = () => {

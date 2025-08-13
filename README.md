@@ -24,6 +24,6 @@
   <code>cd ThreeJSCube</code>
   <li>Install Necessary Dependencies</li>
   <code>npm install</code>
-  <l1>Run The Project</l1>
+  <li>Run The Project</li>
   <code>npm run dev</code>
 </ol>

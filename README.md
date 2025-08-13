@@ -3,14 +3,27 @@
 
 <h2>Languages Used</h2>
 <ul>
-  <li>JavaScript</li>
+  <li>[![My Skills](https://skillicons.dev/icons?i=js)](https://skillicons.dev)JavaScript</li>
   <li>HTML</li>
   <li>CSS</li>
+</ul>
+
+<h2>Usage</h2>
+<ul>
+  <li>Click and drag mouse in any direction to rotate cube manually. For phones swipe in any direction.</li>
+  <li>To zoom in and out scroll with mouse, touchpad, or fingers depending on device.</li>
+  <li>There is a list of options in the top right that can be used to modify the cube</li>
 </ul>
 
 <h2>Running The Project</h2>
 <p>The project can be ran by following the steps below, or by clicking this <a href="https://chrisjorge.github.io/ThreeJSCube/">link</a> to be brought to the hosted site</p>
 <ol>
   <li>Clone The Repository</li>
-  <code>temp</code>
+  <code>https://github.com/ChrisJorge/ThreeJSCube.git</code>
+  <li>Navigate To The Project Folder</li>
+  <code>cd ThreeJSCube</code>
+  <li>Install Necessary Dependencies</li>
+  <code>npm install</code>
+  <l1>Run The Project</l1>
+  <code>npm run dev</code>
 </ol>

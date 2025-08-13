@@ -3,9 +3,9 @@
 
 <h2>Languages Used</h2>
 <ul>
-  <li>[![My Skills](https://skillicons.dev/icons?i=js)](https://skillicons.dev)JavaScript</li>
-  <li>HTML</li>
-  <li>CSS</li>
+  <li><img src="https://skillicons.dev/icons?i=js"/> JavaScript</li>
+  <li><img src="https://skillicons.dev/icons?i=html"/> HTML</li>
+  <li><img src="https://skillicons.dev/icons?i=css"/> CSS</li>
 </ul>
 
 <h2>Usage</h2>

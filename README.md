@@ -19,7 +19,7 @@
 <p>The project can be ran by following the steps below, or by clicking this <a href="https://chrisjorge.github.io/ThreeJSCube/">link</a> to be brought to the hosted site</p>
 <ol>
   <li>Clone The Repository</li>
-  <code>https://github.com/ChrisJorge/ThreeJSCube.git</code>
+  <code>git clone https://github.com/ChrisJorge/ThreeJSCube.git</code>
   <li>Navigate To The Project Folder</li>
   <code>cd ThreeJSCube</code>
   <li>Install Necessary Dependencies</li>
